@@ -50,7 +50,7 @@
 	</div> <!-- #footer -->
 	<div class="copyright">
 		<div class="container">
-			<p style="text-align: center;">Privacy policy. (&copy;) 2014</p>
+			<p style="text-align: center;">Privacy policy. (&copy;) 2019</p>
 			<div class="clearfix"></div>
 		</div> <!-- .container -->
 	</div> <!-- .copyright -->

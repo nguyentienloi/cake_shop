@@ -50,6 +50,11 @@ Route::get('deletecart/{id?}',[
     'uses' => 'PageController@getDeleteItemCart'
 ]);
 
+Route::get('dathang',[
+    'as' => 'dathang',
+    'uses' => 'PageController@getcheckout'
+]);
+
 Route::post('dathang',[
     'as' => 'dathang',
     'uses' => 'PageController@postcheckout'

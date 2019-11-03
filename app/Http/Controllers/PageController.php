@@ -64,6 +64,16 @@ class PageController extends Controller
         return redirect()->back();
     }
 
+    public function getcheckout() {
+        if(Session('cart')){
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+            $product_cart = $cart->items;
+            $totalPrice = $cart->totalPrice;
+        }
+        return view('Page.DatHang', compact('product_cart', 'totalPrice'));
+    }
+
     public function postcheckout(Request $req) {
         //lay thong tin trong bang gio hang
         $cart = Session::get('cart');
@@ -85,15 +95,15 @@ class PageController extends Controller
         $bill->note = $req->notes;
         $bill->save();
         //lay thong tin chi tiet hoa don
-        foreach ($cart['items'] as $key => $value) {
+        foreach ($cart->items as $key => $value) {
             $bill_detail = new BillDetail;
             $bill_detail->id_bill = $bill->id;
             $bill_detail->id_product = $key;
             $bill_detail->quantity = $value['qty'];
             $bill_detail->unit_price = ($value['price']/$value['qty']);
-            $bill_detail = save();
+            $bill_detail->save();
         }
         session::forget('cart');
-        return redirect()->back()->with('Thông báo', 'Đặt hàng thành công');
+        return redirect()->back()->with('thongbao', 'Đặt hàng thành công');
     }
 }
