@@ -6,6 +6,9 @@ use App\Product;
 use App\ProductType;
 use App\Cart;
 use Session;
+use App\Customer;
+use App\Bill;
+use App\BillDetail;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -59,5 +62,38 @@ class PageController extends Controller
             session::forget('cart');
         }
         return redirect()->back();
+    }
+
+    public function postcheckout(Request $req) {
+        //lay thong tin trong bang gio hang
+        $cart = Session::get('cart');
+        //lay thong tin trong bang khach hang
+        $customer = new Customer;
+        $customer->name = $req->name;
+        $customer->gender = $req->gender;
+        $customer->email = $req->email;
+        $customer->address = $req->email;
+        $customer->phone_number = $req->phone_number;
+        $customer->note = $req->notes;
+        $customer->save();
+        //lay nhan vien trong bang hoa don
+        $bill = new Bill;
+        $bill->id_customer = $customer->id;
+        $bill->date_order = date('Y-m-d');
+        $bill->total = $cart->totalPrice;
+        $bill->payment = $req->payment;
+        $bill->note = $req->notes;
+        $bill->save();
+        //lay thong tin chi tiet hoa don
+        foreach ($cart['items'] as $key => $value) {
+            $bill_detail = new BillDetail;
+            $bill_detail->id_bill = $bill->id;
+            $bill_detail->id_product = $key;
+            $bill_detail->quantity = $value['qty'];
+            $bill_detail->unit_price = ($value['price']/$value['qty']);
+            $bill_detail = save();
+        }
+        session::forget('cart');
+        return redirect()->back()->with('Thông báo', 'Đặt hàng thành công');
     }
 }
