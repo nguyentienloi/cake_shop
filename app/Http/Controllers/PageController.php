@@ -26,7 +26,8 @@ class PageController extends Controller
 
     public function getChitietSP(Request $req) {
         $sanpham = Product::where('id', $req->id)->first();
-        return view('Page.chitiet_sanpham', compact('sanpham'));
+        $sp_khac = Product::where('id_type', '<>', $sanpham->id_type)->paginate(3);
+        return view('Page.chitiet_sanpham', compact('sanpham','sp_khac'));
     }
 
     public function getContact() {

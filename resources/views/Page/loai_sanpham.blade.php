@@ -40,7 +40,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 									@endif
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product/{{$sp->image}}" alt="" style="height:230px;"></a>
+                                        <a href="{{route('chitietsanpham', $sp->id)}}"><img src="source/image/product/{{$sp->image}}" alt="" style="height:230px;"></a>
                                     </div>
                                     <div class="single-item-body" style="margin-bottom:15px;">
                                         <p class="single-item-title"><b>{{$sp->name}}</b></p>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="single-item-caption">
                                         <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
+                                        <a class="beta-btn primary" href="{{route('chitietsanpham', $sp->id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 									@endif
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product/{{$sp_k->image}}" alt="" style="height:230px;"></a>
+                                        <a href="{{route('chitietsanpham', $sp_k->id)}}"><img src="source/image/product/{{$sp_k->image}}" alt="" style="height:230px;"></a>
                                     </div>
                                     <div class="single-item-body" style="margin-bottom:15px;">
                                         <p class="single-item-title"><b>{{$sp_k->name}}</b></p>
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="single-item-caption">
                                         <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
+                                        <a class="beta-btn primary" href="{{route('chitietsanpham', $sp_k->id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
