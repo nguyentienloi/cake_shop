@@ -39,3 +39,23 @@ Route::get('gioithieu', [
     'as' => 'about',
     'uses' => 'PageController@getAbout'
 ]);
+
+Route::get('addtocart/{id?}',[
+    'as' => 'addtocart',
+    'uses' => 'PageController@getToCart'
+]);
+
+Route::get('deletecart/{id?}',[
+    'as' => 'deletecart',
+    'uses' => 'PageController@getDeleteItemCart'
+]);
+
+Route::get('dathang',[
+    'as' => 'dathang',
+    'uses' => 'PageController@getcheckout'
+]);
+
+Route::post('dathang',[
+    'as' => 'dathang',
+    'uses' => 'PageController@postcheckout'
+]);
