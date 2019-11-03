@@ -39,3 +39,8 @@ Route::get('gioithieu', [
     'as' => 'about',
     'uses' => 'PageController@getAbout'
 ]);
+
+Route::get('addtocart/{id?}',[
+    'as' => 'addtocart',
+    'uses' => 'PageController@getToCart'
+]);
