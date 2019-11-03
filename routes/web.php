@@ -59,3 +59,13 @@ Route::post('dathang',[
     'as' => 'dathang',
     'uses' => 'PageController@postcheckout'
 ]);
+
+Route::get('dangnhap',[
+    'as' => 'dangnhap',
+    'uses' => 'PageController@getLogin'
+]);
+
+Route::get('dangky',[
+    'as' => 'dangky',
+    'uses' => 'PageController@getSignup'
+]);
