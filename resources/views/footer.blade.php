@@ -33,9 +33,8 @@
 					<div class="widget">
 						<h4 class="widget-title">Đăng ký nhận tin</h4>
 						<div>
-							<div class="contact-info">
-								<i class="fa fa-bullhorn" aria-hidden="true"></i>
-								<p>&nbsp; Mỗi tháng chúng tôi đều có những đợt giảm giá dịch vụ và sản phẩm nhằm tri ân khách hàng. Để có thể cập nhật kịp thời những đợt giảm giá này, vui lòng nhập địa chỉ email của bạn vào ô dưới đây.</p>
+							<div class="" style="margin-bottom:20px;">
+								<p>Mỗi tháng chúng tôi đều có những đợt giảm giá dịch vụ và sản phẩm nhằm tri ân khách hàng. Để có thể cập nhật kịp thời những đợt giảm giá này, vui lòng nhập địa chỉ email của bạn vào ô dưới đây.</p>
 							</div>
 						</div>
 						<form action="#" method="post">
