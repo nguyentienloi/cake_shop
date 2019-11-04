@@ -169,4 +169,11 @@ class PageController extends Controller
         Auth::logout();
         return redirect()->route('trangchu');
     }
+
+    public function getSearchProduct(Request $req){
+        $product = Product::where('name', 'like', '%'.$req->search_pro.'%')
+                            ->orwhere('unit_price', $req->search_pro)
+                            ->get();
+        return view('Page.Search', compact('product'));
+    }
 }

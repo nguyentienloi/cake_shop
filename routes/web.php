@@ -83,3 +83,8 @@ Route::get('logout',[
     'as' => 'logout',
     'uses' => 'PageController@getlogout'
 ]);
+
+Route::get('search_product',[
+    'as' => 'search_product',
+    'uses' => 'PageController@getSearchProduct'
+]);
