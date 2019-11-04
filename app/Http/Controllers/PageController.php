@@ -9,6 +9,8 @@ use Session;
 use App\Customer;
 use App\Bill;
 use App\BillDetail;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -107,11 +109,64 @@ class PageController extends Controller
         return redirect()->back()->with('thongbao', 'Đặt hàng thành công');
     }
 
-    public function getlogin() {
+    public function getLogin(){
         return view('Page.dangnhap');
     }
 
-    public function getSignup() {
+    public function getSignin(){
         return view('Page.dangky');
+    }
+
+    public function postSignin(Request $req){
+        $this->validate($req,
+            [
+                'email'=>'required|email',
+                'pass'=>'required|min:6|max:20',
+                'fullname' =>'required',
+                'repass' => 'required|same:pass'
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Email không đúng định dạng',
+                'pass.required'=>'Vui lòng nhập mật khẩu',
+                'pass.min'=>'Mật khẩu ít nhất 6 kí tự',
+                'pass.max'=>'Mật khẩu không quá 20 kí tự',
+                'repass.same'=> 'Mật khẩu không giống nhau'
+            ]
+        );
+        $user = new User;
+        $user->full_name = $req->fullname;
+        $user->email = $req->email;
+        $user->password = $req->pass;
+        $user->phone = $req->phone;
+        $user->address = $req->address;
+        $user->save();
+        return redirect()->back()->with('thongbao', 'Đăng ký thành công');
+    }
+
+    public function postLogin(Request $req){
+        $this->validate($req,
+            [
+                'email'=>'required|email',
+                'password'=>'required|min:6|max:20'
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Email không đúng định dạng',
+                'password.required'=>'Vui lòng nhập mật khẩu',
+                'password.min'=>'Mật khẩu ít nhất 6 kí tự',
+                'password.max'=>'Mật khẩu không quá 20 kí tự'
+            ]
+        );
+        $credentials = array('email'=>$req->email,'password'=>$req->password);
+        if(Auth::attempt($credentials)){
+            return redirect()->back()->with(['flag'=>'success','massage'=>'đăng nhập thành công']);
+        } else {
+            return redirect()->back()->with(['flag'=>'danger','massage'=>'đăng nhập thất bại']);
+        }
+    }
+    public function getlogout(){
+        Auth::logout();
+        return redirect()->route('trangchu');
     }
 }

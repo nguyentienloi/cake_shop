@@ -67,5 +67,19 @@ Route::get('dangnhap',[
 
 Route::get('dangky',[
     'as' => 'dangky',
-    'uses' => 'PageController@getSignup'
+    'uses' => 'PageController@getSignin'
+]);
+Route::post('dangky',[
+    'as' => 'dangky',
+    'uses' => 'PageController@postSignin'
+]);
+
+Route::post('dangnhap',[
+    'as' => 'dangnhap',
+    'uses' => 'PageController@postLogin'
+]);
+
+Route::get('logout',[
+    'as' => 'logout',
+    'uses' => 'PageController@getlogout'
 ]);
