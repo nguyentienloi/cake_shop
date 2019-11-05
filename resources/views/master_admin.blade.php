@@ -31,11 +31,11 @@
 		<div class="row">
 			<div class="col-md-2">
 				<ul id="admin_menu">
-					<li><a href="{{route('admin/sanpham')}}">Sản phẩm</a>
-					<li><a href="">Danh mục</a>
-					<li><a href="">Khách hàng</a>
-					<li><a href="">Hóa đơn</a>
-					<li><a href="">User</a>
+					<li><a href="{{route('sanpham')}}">Sản phẩm</a>
+					<li><a href="{{route('danhmuc')}}">Danh mục</a>
+					<li><a href="{{route('khachhang')}}">Khách hàng</a>
+					<li><a href="{{route('hoadon')}}">Hóa đơn</a>
+					<li><a href="{{route('user')}}">User</a>
 				</ul>
 			</div>
 			<div class="col-md-10">
