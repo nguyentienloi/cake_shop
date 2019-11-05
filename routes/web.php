@@ -101,6 +101,26 @@ Route::post('admin',[
 ]);
 
 Route::get('admin/sanpham',[
-    'as' => 'admin/sanpham',
+    'as' => 'sanpham',
     'uses' => 'AdminController@getallproduct'
+]);
+
+Route::get('admin/khachhang',[
+    'as' => 'khachhang',
+    'uses' => 'AdminController@getallkhachhang'
+]);
+
+Route::get('admin/danhmuc',[
+    'as' => 'danhmuc',
+    'uses' => 'AdminController@getalldanhmuc'
+]);
+
+Route::get('admin/hoadon',[
+    'as' => 'hoadon',
+    'uses' => 'AdminController@getallhoadon'
+]);
+
+Route::get('admin/user',[
+    'as' => 'user',
+    'uses' => 'AdminController@getalluser'
 ]);
