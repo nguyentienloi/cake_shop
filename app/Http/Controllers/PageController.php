@@ -11,6 +11,8 @@ use App\Bill;
 use App\BillDetail;
 use App\User;
 use Auth;
+use Hash;
+
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -137,7 +139,7 @@ class PageController extends Controller
         $user = new User;
         $user->full_name = $req->fullname;
         $user->email = $req->email;
-        $user->password = $req->pass;
+        $user->password = Hash::make($req->pass);
         $user->phone = $req->phone;
         $user->address = $req->address;
         $user->save();

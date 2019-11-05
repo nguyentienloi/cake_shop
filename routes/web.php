@@ -110,6 +110,11 @@ Route::get('admin/sanpham/chitietSP/{id?}',[
     'uses' => 'AdminController@getoneproduct'
 ]);
 
+Route::post('admin/sanpham/chitietSP/{id?}',[
+    'as' => 'suasp',
+    'uses' => 'AdminController@postupdateproduct'
+]);
+
 Route::get('admin/khachhang',[
     'as' => 'khachhang',
     'uses' => 'AdminController@getallkhachhang'
