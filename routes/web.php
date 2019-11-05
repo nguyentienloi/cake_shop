@@ -105,6 +105,11 @@ Route::get('admin/sanpham',[
     'uses' => 'AdminController@getallproduct'
 ]);
 
+Route::get('admin/sanpham/chitietSP/{id?}',[
+    'as' => 'chitietSP',
+    'uses' => 'AdminController@getoneproduct'
+]);
+
 Route::get('admin/khachhang',[
     'as' => 'khachhang',
     'uses' => 'AdminController@getallkhachhang'

@@ -29,6 +29,12 @@ class AdminController extends Controller
         return view('Admin.sanpham', compact('products'));
     }
 
+    public function getoneproduct($id) {
+        $product = Product::where('id', $id)->first();
+        $type = ProductType::where('id', $product->id_type)->first();
+        return view('Admin.chitietsanpham', compact('product','type'));
+    }
+
     public function getalldanhmuc() {
         $type_products = ProductType::all();
         return view('Admin.danhmuc', compact('type_products'));
