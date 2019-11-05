@@ -7,6 +7,8 @@ use App\Product;
 use App\ProductType;
 use App\Customer;
 use App\Bill;
+use Auth;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -19,9 +21,26 @@ class AdminController extends Controller
         return view('Admin.login');
     }
 
-    public function postlogin() {
-        return view('Admin.index');
-        // return redirect()->view('Admin.index');
+    public function postlogin(Request $req) {
+        $this->validate($req,
+            [
+                'email'=>'required|email',
+                'password'=>'required|min:6|max:20'
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Email không đúng định dạng',
+                'password.required'=>'Vui lòng nhập mật khẩu',
+                'password.min'=>'Mật khẩu ít nhất 6 kí tự',
+                'password.max'=>'Mật khẩu không quá 20 kí tự'
+            ]
+        );
+        $credentials = array('email'=>$req->email,'password'=>$req->password);
+        if(Auth::attempt($credentials)){
+            return view('Admin.index');
+        } else {
+            return print_r('dang nhap that bai');
+        }
     }
 
     public function getallproduct() {
@@ -32,7 +51,20 @@ class AdminController extends Controller
     public function getoneproduct($id) {
         $product = Product::where('id', $id)->first();
         $type = ProductType::where('id', $product->id_type)->first();
-        return view('Admin.chitietsanpham', compact('product','type'));
+        $types = ProductType::all();
+        return view('Admin.chitietsanpham', compact('product','type', 'types'));
+    }
+
+    public function postupdateproduct(Request $req, $id) {
+        $product = Product::where('id', $id)->first();
+        // dd($product);
+        $product = new product;
+        $product->name = $req->tensanpham;
+        $product->id_type = $req->loaidanhmuc;
+        $product->description = $req->mieuta;
+        $product->unit_price = $req->gia;
+        $product->save();
+        return redirect()->back()->with('thongbao', 'Cập nhật thành công');
     }
 
     public function getalldanhmuc() {

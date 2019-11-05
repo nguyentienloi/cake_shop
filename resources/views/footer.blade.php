@@ -18,11 +18,11 @@
 						<h4 class="widget-title">Liên kết nhanh</h4>
 						<div>
 							<ul>
-								<li><a href=""><i class="fa fa-chevron-right"></i> Trang chủ</a></li>
-								<li><a href=""><i class="fa fa-chevron-right"></i> Bánh ngọt</a></li>
-								<li><a href=""><i class="fa fa-chevron-right"></i> Bánh mặn</a></li>
-								<li><a href=""><i class="fa fa-chevron-right"></i> Bánh kem</a></li>
-								<li><a href=""><i class="fa fa-chevron-right"></i> Bánh trái cây</a></li>
+								<li><a href="{{route('trangchu')}}"><i class="fa fa-chevron-right"></i> Trang chủ</a></li>
+								<li><a href="{{route('loaisanpham',2)}}"><i class="fa fa-chevron-right"></i> Bánh ngọt</a></li>
+								<li><a href="{{route('loaisanpham',1)}}"><i class="fa fa-chevron-right"></i> Bánh mặn</a></li>
+								<li><a href="{{route('loaisanpham',4)}}"><i class="fa fa-chevron-right"></i> Bánh kem</a></li>
+								<li><a href="{{route('loaisanpham',3)}}"><i class="fa fa-chevron-right"></i> Bánh trái cây</a></li>
 								<li><a href=""><i class="fa fa-chevron-right"></i> Khuyến mãi hot</a></li>
 							</ul>
 						</div>

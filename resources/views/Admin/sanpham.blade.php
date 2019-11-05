@@ -21,7 +21,6 @@
                 <td style="width:45%;">{{$product->description}}</td>
             <td style="text-align:center;">
                 <a class="btn btn-success" href="{{route('chitietSP',$product->id)}}">Chi tiết</a>
-                <a class="btn btn-danger" href="">Xóa</a>
             </td>
             </tr>
     @endforeach
