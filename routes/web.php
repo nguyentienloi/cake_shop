@@ -88,3 +88,19 @@ Route::get('search_product',[
     'as' => 'search_product',
     'uses' => 'PageController@getSearchProduct'
 ]);
+
+//admin
+Route::get('admin',[
+    'as' => 'admin',
+    'uses' => 'AdminController@getlogin'
+]);
+
+Route::post('admin',[
+    'as' => 'admin',
+    'uses' => 'AdminController@postlogin'
+]);
+
+Route::get('admin/sanpham',[
+    'as' => 'admin/sanpham',
+    'uses' => 'AdminController@getallproduct'
+]);
