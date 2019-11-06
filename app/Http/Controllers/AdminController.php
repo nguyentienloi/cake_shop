@@ -56,15 +56,20 @@ class AdminController extends Controller
     }
 
     public function postupdateproduct(Request $req, $id) {
-        $product = Product::where('id', $id)->first();
-        // dd($product);
         $product = new Product;
+        $product = Product::find($id);
         $product->name = $req->tensanpham;
         $product->id_type = $req->loaidanhmuc;
         $product->description = $req->mieuta;
         $product->unit_price = $req->gia;
+        $product->image = $req->image;
         $product->save();
         return redirect()->back()->with('thongbao', 'Cập nhật thành công');
+    }
+
+    public function deleteProduct($id) {
+        $product = Product::where('id', $id)->delete();
+        return redirect()->back();
     }
 
     public function getAddProduct(Request $req) {

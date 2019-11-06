@@ -120,6 +120,11 @@ Route::get('admin/sanpham/themsanpham',[
     'uses' => 'AdminController@getAddProduct'
 ]);
 
+Route::get('admin/sanpham/deletesanpham/{id?}',[
+    'as' => 'deletesanpham',
+    'uses' => 'AdminController@deleteProduct'
+]);
+
 Route::post('admin/sanpham/themsanpham',[
     'as' => 'addsanpham',
     'uses' => 'AdminController@postAddProduct'
