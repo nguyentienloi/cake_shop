@@ -1,7 +1,7 @@
 @extends('master_admin')
 @section('content')
-<h2 style="margin-bottom:30px;">San pham</h2>
-<a style="margin-bottom:10px;" class="btn btn-success" href="">Thêm sản phẩm</a>
+<h2 style="margin-bottom:30px;">Danh sách sản phẩm</h2>
+<a style="margin-bottom:10px;" class="btn btn-success" href="{{route('addsanpham')}}">Thêm sản phẩm</a>
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
@@ -26,4 +26,5 @@
     @endforeach
     </tbody>
 </table>
+<div class="col-sm-6 col-sm-offset-4">{{ $products->links() }}</div>
 @endsection

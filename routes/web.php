@@ -115,6 +115,21 @@ Route::post('admin/sanpham/chitietSP/{id?}',[
     'uses' => 'AdminController@postupdateproduct'
 ]);
 
+Route::get('admin/sanpham/themsanpham',[
+    'as' => 'addsanpham',
+    'uses' => 'AdminController@getAddProduct'
+]);
+
+Route::get('admin/sanpham/deletesanpham/{id?}',[
+    'as' => 'deletesanpham',
+    'uses' => 'AdminController@deleteProduct'
+]);
+
+Route::post('admin/sanpham/themsanpham',[
+    'as' => 'addsanpham',
+    'uses' => 'AdminController@postAddProduct'
+]);
+
 Route::get('admin/khachhang',[
     'as' => 'khachhang',
     'uses' => 'AdminController@getallkhachhang'
