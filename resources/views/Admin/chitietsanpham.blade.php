@@ -37,15 +37,9 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">image</label>
     <div class="col-sm-10">
-        <textarea name="mieuta" id="input" class="form-control" rows="3" required="required"></textarea>
+    <input type="text" class="form-control" id="image" value="" name="image">
     </div>
   </div>
-  <!-- <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Hình ảnh</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="pwd" value="">
-    </div>
-  </div> -->
   <div class="form-group">
     <div class="col-sm-offset-10 col-sm-2">
       <button type="submit" class="btn btn-warning">Sửa</button>
@@ -53,5 +47,4 @@
     </div>
   </div>
 </form>
-
 @endsection

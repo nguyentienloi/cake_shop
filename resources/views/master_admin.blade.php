@@ -27,7 +27,7 @@
 </head>
 <body>
 	<div class="container">
-		<h2 style="text-align:center;margin-bottom:30px;margin-top:15px;">Quản trị website cake_shop</h2>
+		<h2 style="text-align:center;margin-bottom:30px;margin-top:15px;"><img src="source/assets/dest/images/logo-cake.png" width="100px" alt="">Quản trị website cake_shop</h2>
 		<div class="row">
 			<div class="col-md-2">
 				<ul id="admin_menu">

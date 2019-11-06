@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
 
     public function getallproduct() {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('Admin.sanpham', compact('products'));
     }
 
@@ -58,13 +58,28 @@ class AdminController extends Controller
     public function postupdateproduct(Request $req, $id) {
         $product = Product::where('id', $id)->first();
         // dd($product);
-        $product = new product;
+        $product = new Product;
         $product->name = $req->tensanpham;
         $product->id_type = $req->loaidanhmuc;
         $product->description = $req->mieuta;
         $product->unit_price = $req->gia;
         $product->save();
         return redirect()->back()->with('thongbao', 'Cập nhật thành công');
+    }
+
+    public function getAddProduct(Request $req) {
+        return view('Admin.addsanpham');
+    }
+
+    public function postAddProduct(Request $req) {
+        $product =  new Product;
+        $product->name = $req->tensanpham;
+        $product->id_type = $req->loaisanpham;
+        $product->description = $req->mieuta;
+        $product->unit_price = $req->gia;
+        $product->image = $req->image;
+        $product->save();
+        return redirect()->back()->with('thongbao', 'them san pham thành công');
     }
 
     public function getalldanhmuc() {
