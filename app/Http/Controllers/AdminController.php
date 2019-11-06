@@ -17,6 +17,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //login
     public function getlogin() {
         return view('Admin.login');
     }
@@ -43,6 +44,7 @@ class AdminController extends Controller
         }
     }
 
+//san pham
     public function getallproduct(Request $req) {
         if(Auth::user()->full_name) {
             $products = Product::paginate(10);
@@ -104,25 +106,65 @@ class AdminController extends Controller
         $product->unit_price = $req->gia;
         $product->image = $req->image;
         $product->save();
-        return redirect()->back()->with('thongbao', 'them san pham thành công');
+        return redirect('admin/sanpham')->with('thongbao', 'Thêm sản phẩm thành công');
     }
 
+    //danh muc
     public function getalldanhmuc() {
-        $type_products = ProductType::all();
-        return view('Admin.danhmuc', compact('type_products'));
+        if(Auth::user()->full_name) {
+            $type_products = ProductType::paginate(10);
+            return view('Admin.danhmuc', compact('type_products'));
+        } else {
+            return view('Admin.login');
+        }
     }
 
+    public function getthemdanhmuc() {
+        return view('Admin.themdanhmuc');
+    }
+
+    public function postthemdanhmuc(Request $req) {
+        $Type =  new ProductType;
+        $Type->name = $req->tendanhmuc;
+        $Type->description = $req->mieuta;
+        $Type->image = $req->image;
+        $Type->save();
+        return redirect('admin/themdanhmuc')->with('thongbao', 'Thêm danh mục thành công');
+    }
+
+    public function getchitietdanhmuc($id) {
+        $type = ProductType::where('id', $id)->first();
+        return view('Admin.chitietdanhmuc', compact('type'));
+    }
+
+    public function getdeletedanhmuc($id) {
+        $type = ProductType::where('id', $id)->delete();
+        return redirect('admin/danhmuc')->with('thongbao', 'Xóa thành công');
+    }
+
+    public function postupdatedanhmuc(Request $req, $id) {
+        $type = new ProductType;
+        $type = ProductType::find($id);
+        $type->name = $req->tendanhmuc;
+        $type->description = $req->mieuta;
+        $type->image = $req->image;
+        $type->save();
+        return redirect('admin/danhmuc')->with('thongbao', 'Cập nhật thành công');
+    }
+    
+    //khach hang
     public function getallkhachhang() {
         $customers = Customer::all();
         return view('Admin.khachhang', compact('customers'));
     }
 
+    //hoa don
     public function getallhoadon() {
         $bills = Bill::all();
         $customers = Customer::get();
         return view('Admin.hoadon',compact('bills','customers'));
     }
-
+    //user
     public function getalluser() {
         return view('Admin.danhmuc');
     }
