@@ -90,8 +90,8 @@ Route::get('search_product',[
 ]);
 
 //admin
-Route::get('admin',[
-    'as' => 'admin',
+Route::get('admin/login',[
+    'as' => 'admin/login',
     'uses' => 'AdminController@getlogin'
 ]);
 

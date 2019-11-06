@@ -43,9 +43,13 @@ class AdminController extends Controller
         }
     }
 
-    public function getallproduct() {
-        $products = Product::paginate(10);
-        return view('Admin.sanpham', compact('products'));
+    public function getallproduct(Request $req) {
+        if(Auth::user()->full_name) {
+            $products = Product::paginate(10);
+            return view('Admin.sanpham', compact('products'));
+        } else {
+            return view('Admin.login');
+        }
     }
 
     public function getoneproduct($id) {
@@ -56,20 +60,36 @@ class AdminController extends Controller
     }
 
     public function postupdateproduct(Request $req, $id) {
+        if($req->loaidanhmuc == "Bánh kem") {
+            $loaisanpham = 4;
+        } else if($req->loaidanhmuc == "Bánh mặn") {
+            $loaisanpham = 1;
+        } else if($req->loaidanhmuc == "Bánh ngọt") {
+            $loaisanpham = 2;
+        } else if($req->loaidanhmuc == "Bánh trái cây") {
+            $loaisanpham = 3;
+        } else if($req->loaidanhmuc == "Bánh crepe") {
+            $loaisanpham = 5;
+        } else if($req->loaidanhmuc == "Bánh Pizza") {
+            $loaisanpham = 6;
+        } else if($req->loaidanhmuc == "Bánh su kem") {
+            $loaisanpham = 7;
+        }
+
         $product = new Product;
         $product = Product::find($id);
         $product->name = $req->tensanpham;
-        $product->id_type = $req->loaidanhmuc;
+        $product->id_type = $loaisanpham;
         $product->description = $req->mieuta;
         $product->unit_price = $req->gia;
         $product->image = $req->image;
         $product->save();
-        return redirect()->back()->with('thongbao', 'Cập nhật thành công');
+        return redirect('admin/sanpham')->with('thongbao', 'Cập nhật thành công');
     }
 
     public function deleteProduct($id) {
         $product = Product::where('id', $id)->delete();
-        return redirect()->back();
+        return redirect('admin/sanpham')->with('thongbao', 'Xóa thành công');
     }
 
     public function getAddProduct(Request $req) {
