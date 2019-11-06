@@ -14,10 +14,10 @@
 		<label class="control-label col-sm-2" for="pwd">Loại danh mục</label>
 		<div class="col-sm-10">
 			<div class="input-group">
-			<select class="form-control" id="inputGroupSelect03">
+			<select class="form-control" name="loaidanhmuc">
 				<option selected>{{$type->name}}</option>
 				@foreach($types as $value)
-				<option value="{{$value->name}}">{{$value->name}}</option>
+				<option value="{{$value->id}}">{{$value->name}}</option>
 				@endforeach
 			</select>
 			</div>

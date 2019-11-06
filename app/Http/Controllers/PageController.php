@@ -162,7 +162,7 @@ class PageController extends Controller
         );
         $credentials = array('email'=>$req->email,'password'=>$req->password);
         if(Auth::attempt($credentials)){
-            return redirect()->back()->with(['flag'=>'success','massage'=>'đăng nhập thành công']);
+            return redirect('')->with(['flag'=>'success','massage'=>'đăng nhập thành công']);
         } else {
             return redirect()->back()->with(['flag'=>'danger','massage'=>'đăng nhập thất bại']);
         }

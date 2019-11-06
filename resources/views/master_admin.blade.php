@@ -23,19 +23,37 @@
 		list-style-type:none;
 		padding:12px;
 	}
+	#admin_menu li:hover{
+		background-color:#ccc;
+		border-right:1px solid #ccc;
+	}
+	#top li {
+		list-style-type:none;
+		float:left;
+	}
 	</style>
 </head>
 <body>
 	<div class="container">
+	<div class="row" style="padding-bottom:50px;padding-top:20px;">
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+		</div>
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 		<h2 style="text-align:center;margin-bottom:30px;margin-top:15px;"><img src="source/assets/dest/images/logo-cake.png" width="100px" alt="">Quản trị website cake_shop</h2>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<ul id="top">
+			</ul>
+		</div>
+	</div>
 		<div class="row">
 			<div class="col-md-2">
 				<ul id="admin_menu">
-					<li><a href="{{route('sanpham')}}">Sản phẩm</a>
-					<li><a href="{{route('danhmuc')}}">Danh mục</a>
-					<li><a href="{{route('khachhang')}}">Khách hàng</a>
-					<li><a href="{{route('hoadon')}}">Hóa đơn</a>
-					<li><a href="{{route('user')}}">User</a>
+					<li><b><a href="{{route('sanpham')}}">Sản phẩm</a></b>
+					<li><b><a href="{{route('danhmuc')}}">Danh mục</a></b>
+					<li><b><a href="{{route('khachhang')}}">Khách hàng</a></b>
+					<li><b><a href="{{route('hoadon')}}">Hóa đơn</a></b>
+					<li><b><a href="{{route('user')}}">User</a></b>
 				</ul>
 			</div>
 			<div class="col-md-10">
