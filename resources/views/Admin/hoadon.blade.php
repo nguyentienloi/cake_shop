@@ -7,8 +7,8 @@
         <tr>
             <th style="text-align:center;">ID hóa đơn</th>
             <th style="text-align:center;">Khách hàng</th>
-            <th style="text-align:center;">Số lượng</th>
             <th style="text-align:center;">Tổng tiền</th>
+            <th style="text-align:center;">Phương thức thanh toán</th>
             <th style="text-align:center;">Chức năng</th>
         </tr>
     </thead>
@@ -17,12 +17,16 @@
         <tr>
             <td style="text-align:center;">{{$bill->id}}</td>
             <td style="width:15%;">{{$bill->id_customer}}</td>
-            <td style="width:10%;">1</td>
-            <td style="width:35%;">{{$bill->total}}</td>
+            <td style="width:15%; text-align:center;">{{number_format($bill->total)}}</td>
+            <td style="width:25%; text-align:center;">
+            @if($bill->payment == "COD")
+            Thanh toán trực tiếp
+            @else
+            Thanh toán bằng thẻ tín dụng
+            @endif
+            </td>
             <td style="text-align:center;">
                 <a class="btn btn-success" href="">Chi tiết</a>
-                <a class="btn btn-primary" href="">Sửa</a>
-                <a class="btn btn-danger" href="">Xóa</a>
             </td>
         </tr>
     @endforeach

@@ -136,6 +136,26 @@ Route::get('admin/khachhang',[
     'uses' => 'AdminController@getallkhachhang'
 ]);
 
+Route::get('admin/themkhachhang',[
+    'as' => 'themkhachhang',
+    'uses' => 'Admincontroller@getthemkhachhang' 
+]);
+
+Route::post('admin/themkhachhang',[
+    'as' => 'themkhachhang',
+    'uses' => 'Admincontroller@postthemkhachhang'
+]);
+
+Route::get('admin/khachhang/chitietkhachhang/{id?}',[
+    'as' => 'chitietkhachhang',
+    'uses' => 'AdminController@getchitietkhachhang'
+]);
+
+Route::post('admin/khachhang/updatekhachhang/{id?}',[
+    'as' => 'updatekhachhang',
+    'uses' => 'AdminController@postupdatekhachhang'
+]);
+
 //danh muc
 Route::get('admin/danhmuc',[
     'as' => 'danhmuc',

@@ -46,12 +46,12 @@ class AdminController extends Controller
 
 //san pham
     public function getallproduct(Request $req) {
-        if(Auth::user()->full_name) {
+        // if(Auth::user()->full_name) {
             $products = Product::paginate(10);
             return view('Admin.sanpham', compact('products'));
-        } else {
-            return view('Admin.login');
-        }
+        // } else {
+        //     return view('Admin.login');
+        // }
     }
 
     public function getoneproduct($id) {
@@ -111,12 +111,12 @@ class AdminController extends Controller
 
     //danh muc
     public function getalldanhmuc() {
-        if(Auth::user()->full_name) {
+        // if(Auth::user()->full_name) {
             $type_products = ProductType::paginate(10);
             return view('Admin.danhmuc', compact('type_products'));
-        } else {
-            return view('Admin.login');
-        }
+        // } else {
+        //     return view('Admin.login');
+        // }
     }
 
     public function getthemdanhmuc() {
@@ -154,18 +154,52 @@ class AdminController extends Controller
     
     //khach hang
     public function getallkhachhang() {
-        $customers = Customer::all();
+        $customers = Customer::paginate(10);
         return view('Admin.khachhang', compact('customers'));
+    }
+
+    public function getthemkhachhang() {
+        return view('Admin.themkhachhang');
+    }
+
+    public function postthemkhachhang(Request $req) {
+        $customer =  new Customer;
+        $customer->name = $req->tenkhachhang;
+        $customer->gender = $req->gt;
+        $customer->email = $req->email;
+        $customer->address = $req->address;
+        $customer->phone_number = $req->phone;
+        $customer->note = $req->note;
+        $customer->save();
+        return redirect('admin/themkhachhang')->with('thongbao', 'Thêm khách hàng thành công');
+    }
+
+    public function getchitietkhachhang($id) {
+        $customer = Customer::where('id', $id)->first();
+        return view('Admin.chitietkhachhang', compact('customer'));
+    }
+
+    public function postupdatekhachhang(Request $req, $id) {
+        $customer = new Customer;
+        $customer = Customer::find($id);
+        $customer->name = $req->tenkhachhang;
+        $customer->gender = $req->gt;
+        $customer->email = $req->email;
+        $customer->address = $req->address;
+        $customer->phone_number = $req->phone;
+        $customer->note = $req->note;
+        $customer->save();
+        return redirect('admin/khachhang')->with('thongbao', 'Cập nhật thành công');
     }
 
     //hoa don
     public function getallhoadon() {
         $bills = Bill::all();
-        $customers = Customer::get();
-        return view('Admin.hoadon',compact('bills','customers'));
+        $customer = Customer::get();
+        return view('Admin.hoadon',compact('bills', 'customer'));
     }
     //user
     public function getalluser() {
-        return view('Admin.danhmuc');
+        return view('Admin.user');
     }
 }
