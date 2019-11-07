@@ -89,7 +89,7 @@ Route::get('search_product',[
     'uses' => 'PageController@getSearchProduct'
 ]);
 
-//admin
+//admin screen
 Route::get('admin/login',[
     'as' => 'admin/login',
     'uses' => 'AdminController@getlogin'
@@ -99,7 +99,7 @@ Route::post('admin',[
     'as' => 'admin',
     'uses' => 'AdminController@postlogin'
 ]);
-
+//san pham
 Route::get('admin/sanpham',[
     'as' => 'sanpham',
     'uses' => 'AdminController@getallproduct'
@@ -130,21 +130,70 @@ Route::post('admin/sanpham/themsanpham',[
     'uses' => 'AdminController@postAddProduct'
 ]);
 
+//khach hang
 Route::get('admin/khachhang',[
     'as' => 'khachhang',
     'uses' => 'AdminController@getallkhachhang'
 ]);
 
+Route::get('admin/themkhachhang',[
+    'as' => 'themkhachhang',
+    'uses' => 'Admincontroller@getthemkhachhang' 
+]);
+
+Route::post('admin/themkhachhang',[
+    'as' => 'themkhachhang',
+    'uses' => 'Admincontroller@postthemkhachhang'
+]);
+
+Route::get('admin/khachhang/chitietkhachhang/{id?}',[
+    'as' => 'chitietkhachhang',
+    'uses' => 'AdminController@getchitietkhachhang'
+]);
+
+Route::post('admin/khachhang/updatekhachhang/{id?}',[
+    'as' => 'updatekhachhang',
+    'uses' => 'AdminController@postupdatekhachhang'
+]);
+
+//danh muc
 Route::get('admin/danhmuc',[
     'as' => 'danhmuc',
     'uses' => 'AdminController@getalldanhmuc'
 ]);
 
+Route::get('admin/danhmuc/themdanhmuc',[
+    'as' => 'themdanhmuc',
+    'uses' => 'AdminController@getthemdanhmuc'
+]);
+
+Route::post('admin/danhmuc/themdanhmuc',[
+    'as' => 'themdanhmuc',
+    'uses' => 'AdminController@postthemdanhmuc'
+]);
+
+Route::get('admin/danhmuc/chitietdanhmuc/{id?}',[
+    'as' => 'chitietdanhmuc',
+    'uses' => 'AdminController@getchitietdanhmuc'
+]);
+
+Route::post('admin/danhmuc/editdanhmuc/{id?}',[
+    'as' => 'editdanhmuc',
+    'uses' => 'AdminController@postupdatedanhmuc'
+]);
+
+Route::get('admin/danhmuc/deletedanhmuc/{id?}',[
+    'as' => 'deletedanhmuc',
+    'uses' => 'AdminController@getdeletedanhmuc'
+]);
+
+//hoadon
 Route::get('admin/hoadon',[
     'as' => 'hoadon',
     'uses' => 'AdminController@getallhoadon'
 ]);
 
+//user
 Route::get('admin/user',[
     'as' => 'user',
     'uses' => 'AdminController@getalluser'
