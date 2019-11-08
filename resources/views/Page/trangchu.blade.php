@@ -37,7 +37,7 @@
 							</div>
 							<div class="row">
 								@foreach($new_product as $new)
-								<div class="col-sm-3" style="margin-bottom:30px;">
+								<div class="col-sm-3 hover_div">
 									<div class="single-item">
 										@if($new->promotion_price)
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>

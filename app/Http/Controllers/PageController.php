@@ -21,7 +21,7 @@ class PageController extends Controller
         $slide = Slide::all();
        // $new_product = Product::where('new', 1)->get(); truyền ra hết 17 sản phẩm có new = 1
         $new_product = Product::where('new', 1)->paginate(4); // chỉ lấy ra 4 phần tử
-        $sale_product = Product::where('promotion_price', '<>', 0)->paginate(8);
+        $sale_product = Product::where('promotion_price', '<>', 0)->paginate(12);
         return view('Page.trangchu', compact('slide', 'new_product', 'sale_product'));
     }
 
