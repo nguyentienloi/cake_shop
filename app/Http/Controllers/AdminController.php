@@ -9,6 +9,7 @@ use App\Customer;
 use App\Bill;
 use Auth;
 use Hash;
+use App\BillDetail;
 
 class AdminController extends Controller
 {
@@ -195,8 +196,20 @@ class AdminController extends Controller
     //hoa don
     public function getallhoadon() {
         $bills = Bill::all();
-        $customer = Customer::get();
-        return view('Admin.hoadon',compact('bills', 'customer'));
+        return view('Admin.hoadon',compact('bills'));
+    }
+
+    public function getchitietHD($id) {
+        $bill_detail = BillDetail::where('id_bill', $id)->get();
+        $bill = Bill::where('id', $id)->first();
+        $customer = Customer::where('id',$bill->id_customer)->first();
+        // $list = array();
+        foreach($bill_detail as $value){
+            $product = Product::where('id',$value->id_product)->first();
+            dump($product->name);
+        }
+        // dump($product->name);
+        return view('Admin.chitiethoadon', compact('bill_detail', 'bill', 'customer', 'product'));
     }
     //user
     public function getalluser() {

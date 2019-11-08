@@ -90,6 +90,11 @@ Route::get('search_product',[
 ]);
 
 //admin screen
+Route::get('admin/',[
+    'as' => 'admin/login',
+    'uses' => 'AdminController@getlogin'
+]);
+
 Route::get('admin/login',[
     'as' => 'admin/login',
     'uses' => 'AdminController@getlogin'
@@ -191,6 +196,11 @@ Route::get('admin/danhmuc/deletedanhmuc/{id?}',[
 Route::get('admin/hoadon',[
     'as' => 'hoadon',
     'uses' => 'AdminController@getallhoadon'
+]);
+
+Route::get('admin/hoadon/chitietHD/{id?}',[
+    'as' => 'chitietHD',
+    'uses' => 'AdminController@getchitietHD'
 ]);
 
 //user

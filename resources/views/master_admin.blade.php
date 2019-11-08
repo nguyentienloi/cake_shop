@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel </title>
+    <title>Cake Shop</title>
     <base href="{{ asset('') }}">
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 		</div>
 		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-		<h2 style="text-align:center;margin-bottom:30px;margin-top:15px;"><img src="source/assets/dest/images/logo-cake.png" width="100px" alt="">Quản trị website cake_shop</h2>
+		<h2 style="text-align:center;margin-bottom:30px;margin-top:15px;"><a href=""><img src="source/assets/dest/images/logo-cake.png" width="100px" alt=""></a>Quản trị website cake_shop</h2>
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			<ul id="top">

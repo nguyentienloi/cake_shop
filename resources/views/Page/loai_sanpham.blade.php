@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ul class="aside-menu">
+                        <li><h3>Danh mục</h3></li>
                         @foreach($loai as $l)
                         <li><a href="{{ route('loaisanpham', $l->id) }}">{{ $l->name }}</a></li>
                         @endforeach
