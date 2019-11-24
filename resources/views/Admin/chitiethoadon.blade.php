@@ -22,7 +22,7 @@
     <tbody>
     @foreach($bill_detail as $v)
         <tr>
-            <td style="text-align:center;">{{$v->id_product}}</td>
+            <td style="text-align:center;">{{$v->product->name}}</td>
             <td style="width:15%;text-align:center;">{{$v->quantity}}</td>
             <td style="width:15%; text-align:center;">{{number_format($v->unit_price)}}</td>
             <td style="width:25%; text-align:center;">{{number_format($v->quantity * $v->unit_price)}}</td>
