@@ -203,13 +203,13 @@ class AdminController extends Controller
         $bill_detail = BillDetail::where('id_bill', $id)->get();
         $bill = Bill::where('id', $id)->first();
         $customer = Customer::where('id',$bill->id_customer)->first();
-        // $list = array();
-        foreach($bill_detail as $value){
-            $product = Product::where('id',$value->id_product)->first();
-            dump($product->name);
-        }
+        // // $list = array();
+        // foreach($bill_detail as $value){
+        //     $product = Product::where('id',$value->id_product)->first();
+        //     dump($product->name);
+        // }
         // dump($product->name);
-        return view('Admin.chitiethoadon', compact('bill_detail', 'bill', 'customer', 'product'));
+        return view('Admin.chitiethoadon', compact('bill_detail', 'customer', 'bill'));
     }
     //user
     public function getalluser() {
