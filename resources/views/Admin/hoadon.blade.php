@@ -16,7 +16,7 @@
     @foreach($bills as $bill)
         <tr>
             <td style="text-align:center;">{{$bill->id}}</td>
-            <td style="width:30%;text-align:center;">{{$bill->id_customer}}</td>
+            <td style="width:30%;text-align:center;">{{$bill->customer->name}}</td>
             <td style="width:15%; text-align:center;">{{number_format($bill->total)}}</td>
             <td style="width:25%; text-align:center;">
             @if($bill->payment == "COD")
