@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-5"><h2 style="margin-bottom:30px;">Chi tiết hoá đơn</h2></div>
     <div class="col-md-5"></div>
-    <div class="col-md-2"><a href="" class="btn btn-primary">In hóa đơn</a></div>
+    <div class="col-md-2"><a href="{{route('pdf', $bill->id)}}" class="btn btn-primary">In hóa đơn</a></div>
 </div>
 <div class="row" style="margin-bottom:20px;">
     <div class="col-md-3"><p>Khách hàng: {{$customer->name}}</p></div>

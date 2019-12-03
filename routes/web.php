@@ -208,3 +208,10 @@ Route::get('admin/user',[
     'as' => 'user',
     'uses' => 'AdminController@getalluser'
 ]);
+
+//PDF
+// Route::get('admin/hoadon/pdf','pdfController@index');
+Route::get('admin/hoadon/chitietHD/{id?}/pdf',[
+    'as' => 'pdf',
+    'uses' => 'pdfController@index'
+]);
